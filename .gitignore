@@ -1,0 +1,10 @@
+.DS_Store
+/.build
+/Packages
+/*.xcodeproj
+xcuserdata/
+DerivedData/
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+/.swiftpm/xcode/xcshareddata/xcschemes/mrkdwn.xcscheme
+/.swiftpm/xcode/xcshareddata/xcschemes/mrkdwn-Package.xcscheme
+/.swiftpm/xcode/xcshareddata/xcschemes/mrkdwnCore.xcscheme
