@@ -20,7 +20,7 @@ struct GenTOFCommand: ParsableCommand {
 
 extension GenTOFCommand {
     private func run(options: GenTOFCommandOptions) throws {
-        let urls = try Mrkdwn.markdownFileURLs(from: options.targetDirectory)
+        let urls = try Mrkdwn.markdownFileURLs(from: options.targetDirectory, level: options.linkDirectoryLevel)
 
         #if DEBUG
         urls.forEach { url in

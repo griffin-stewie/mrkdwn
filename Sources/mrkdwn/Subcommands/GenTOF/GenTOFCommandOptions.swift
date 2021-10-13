@@ -16,6 +16,9 @@ struct GenTOFCommandOptions: ParsableArguments {
     
     @Option(name: .customLong("target-dir"), help: ArgumentHelp("The directory containing markdown files. Only markdown files with the `md` file extension will be processed.", valueName: "Directory Path"))
     var targetDirectory: Path
+    
+    @Option(name: .customLong("link-dir-level"), help: ArgumentHelp("TOF relative URL depth level. 0 means no directory.", valueName: "level"))
+    var linkDirectoryLevel: Int = 0
 }
 
 extension GenTOFCommandOptions {
