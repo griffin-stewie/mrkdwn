@@ -1,6 +1,5 @@
 import Foundation
 import Path
-import Down
 
 public enum Mrkdwn {
     public static func markdownFileURLs(from dir: Path, level: Int) throws -> [URL] {

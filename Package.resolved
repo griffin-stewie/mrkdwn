@@ -2,21 +2,12 @@
   "object": {
     "pins": [
       {
-        "package": "Down",
-        "repositoryURL": "https://github.com/johnxnguyen/Down",
-        "state": {
-          "branch": null,
-          "revision": "f34b166be1f1db4aa8f573067e901d72f2a6be57",
-          "version": "0.11.0"
-        }
-      },
-      {
         "package": "Path.swift",
         "repositoryURL": "https://github.com/mxcl/Path.swift",
         "state": {
           "branch": null,
-          "revision": "39f81ae258dcbb6a3d3995ac9547dd6b073179a4",
-          "version": "1.2.1"
+          "revision": "9c6f807b0a76be0e27aecc908bc6f173400d839e",
+          "version": "1.4.0"
         }
       },
       {
@@ -24,8 +15,26 @@
         "repositoryURL": "https://github.com/apple/swift-argument-parser",
         "state": {
           "branch": null,
-          "revision": "986d191f94cec88f6350056da59c2e59e83d1229",
-          "version": "0.4.3"
+          "revision": "d2930e8fcf9c33162b9fcc1d522bc975e2d4179b",
+          "version": "1.0.1"
+        }
+      },
+      {
+        "package": "cmark-gfm",
+        "repositoryURL": "https://github.com/apple/swift-cmark.git",
+        "state": {
+          "branch": "gfm",
+          "revision": "2190baadafe6e83e50f8f97c2909eb48fd3eae66",
+          "version": null
+        }
+      },
+      {
+        "package": "swift-markdown",
+        "repositoryURL": "https://github.com/griffin-stewie/swift-markdown.git",
+        "state": {
+          "branch": "fix/remove_ArgumentParser",
+          "revision": "7923aa921cb036e5ebfc1fb5978e342e3bdf199d",
+          "version": null
         }
       }
     ]
