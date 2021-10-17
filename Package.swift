@@ -14,9 +14,6 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
-//        .package(url: "ssh://git@github.com/apple/swift-markdown.git", .branch("main")),
-
-//        .package(name: "swift-markdown", path: "~/repo/github.com/griffin-stewie/swift-markdown"),
         .package(url: "https://github.com/griffin-stewie/swift-markdown.git", .branch("fix/remove_ArgumentParser")),
         .package(url: "https://github.com/apple/swift-argument-parser", .upToNextMinor(from: "1.0.0")),
         .package(url: "https://github.com/mxcl/Path.swift", .upToNextMinor(from: "1.4.0")),
