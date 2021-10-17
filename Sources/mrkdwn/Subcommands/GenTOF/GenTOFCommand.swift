@@ -1,5 +1,6 @@
 import Foundation
 import ArgumentParser
+import Markdown
 import mrkdwnCore
 
 struct GenTOFCommand: ParsableCommand {
@@ -30,11 +31,26 @@ extension GenTOFCommand {
         
         let files = try urls.map(MarkdownFile.init(url:))
             .sorted(by: sort)
-        
-        try files.forEach { file in
-            let str = try file.link(style: options.listStyle)
-            print(str)
+
+        guard let unorderedListMarker = MarkupFormatter.Options.UnorderedListMarker(argument: options.unorderedListMarker) else {
+            throw ArgumentParser.ValidationError("The value '\(self.options.unorderedListMarker)' is invalid for '--unordered-list-marker'")
         }
+
+        let orderedListNumerals: MarkupFormatter.Options.OrderedListNumerals
+        switch options.orderedListCounting {
+        case .allSame:
+            orderedListNumerals = .allSame(options.orderedListStartNumeral)
+        case .incrementing:
+            orderedListNumerals = .incrementing(start: options.orderedListStartNumeral)
+        }
+
+        let formatterOptions = MarkupFormatter.Options(unorderedListMarker: unorderedListMarker,
+                                                       orderedListNumerals: orderedListNumerals)
+
+        let lists = files.map { $0.listItem() }
+        let doc = options.listStyle.document(with: lists)
+        let formatted = doc.format(options: formatterOptions)
+        print(formatted)
     }
     
     private func sort(lhs: MarkdownFile, rhs: MarkdownFile) -> Bool {
@@ -58,3 +74,5 @@ extension GenTOFCommand {
         }
     }
 }
+
+extension MarkupFormatter.Options.UnorderedListMarker: ExpressibleByArgument {}

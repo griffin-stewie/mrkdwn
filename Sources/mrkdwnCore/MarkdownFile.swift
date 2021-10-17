@@ -17,6 +17,25 @@ public struct MarkdownFile {
                 return "- "
             }
         }
+
+        public func document(with lists: [ListItem]) -> Document {
+            var doc = Document()
+            switch self {
+            case .none:
+                doc.setBlockChildren(lists)
+            case .ordered:
+                doc.setBlockChildren([OrderedList(lists)])
+            case .unordered:
+                doc.setBlockChildren([UnorderedList(lists)])
+            }
+
+            return doc
+        }
+
+        public func formatterOptions() -> MarkupFormatter.Options {
+            MarkupFormatter.Options(unorderedListMarker: .dash,
+                                    orderedListNumerals: .allSame(1))
+        }
     }
     
     public let url: URL
@@ -29,8 +48,16 @@ public struct MarkdownFile {
         self.title = try Self.extractTitle(document: doc)
     }
     
-    public func link(style: Style = .unordered) throws -> String {
+    public func link(style: Style = .unordered) -> String {
         return "\(style.syntax)[\(title)](\(url.relativePath))"
+    }
+
+    public func listItem() -> ListItem {
+        return ListItem(
+            Paragraph(
+                Link(destination: url.relativePath, Text(title))
+            )
+        )
     }
 }
 
