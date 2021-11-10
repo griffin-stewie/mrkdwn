@@ -8,3 +8,4 @@ DerivedData/
 /.swiftpm/xcode/xcshareddata/xcschemes/mrkdwn.xcscheme
 /.swiftpm/xcode/xcshareddata/xcschemes/mrkdwn-Package.xcscheme
 /.swiftpm/xcode/xcshareddata/xcschemes/mrkdwnCore.xcscheme
+/release_binary.zip
